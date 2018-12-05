@@ -4,12 +4,12 @@ BEGIN {
     ORS = "\n"
 }
 
-NR > 1 {
+NR > 0 {
     if (!prev) {
         printf $1 "\t"
     } else if (prev != $1) {
         printf "\n" $1 "\t"
-    } else { 
+    } else {
         printf ":"
     }
     printf $2 "," $4

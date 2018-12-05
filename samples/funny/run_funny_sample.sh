@@ -4,9 +4,10 @@
 # writing predictions to a file called 'recs'.
 #
 
-# Convert ml-20m_ratings.csv to format supported by generateNetCDF
+# Convert train_ph.txt to format supported by generateNetCDF
 echo "Converting train_ph.txt to DSSTNE format"
 awk -f convert_ratings.awk train_ph.txt > train_ph
+awk -f convert_ratings.awk test_ph.txt > test_ph
 
 # Generate NetCDF files for input and output layers
 generateNetCDF -d gl_input  -i train_ph -o gl_input.nc  -f features_input  -s samples_input -c
